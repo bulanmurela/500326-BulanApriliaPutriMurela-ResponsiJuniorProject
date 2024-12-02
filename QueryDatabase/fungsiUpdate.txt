@@ -1,0 +1,19 @@
+CREATE OR REPLACE FUNCTION st_update(
+    _id_karyawan VARCHAR,
+    _nama VARCHAR,
+    _id_dep INTEGER
+)
+RETURNS INTEGER AS $$
+BEGIN
+    UPDATE karyawan 
+    SET 
+        nama = _nama, 
+        id_dep = _id_dep 
+    WHERE 
+        id_karyawan = _id_karyawan::INTEGER;
+    RETURN 1;
+EXCEPTION 
+    WHEN OTHERS THEN 
+        RETURN 0;
+END;
+$$ LANGUAGE plpgsql;

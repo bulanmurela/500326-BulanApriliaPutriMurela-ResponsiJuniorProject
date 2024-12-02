@@ -1,0 +1,13 @@
+-- Create Table
+CREATE TABLE department (
+    id_dep INTEGER PRIMARY KEY,
+    nama_dep VARCHAR(50) NOT NULL
+);
+
+-- Populate Table
+INSERT INTO department (id_dep, nama_dep) VALUES 
+(1, 'HR'),
+(2, 'Engineer'),
+(3, 'Developer'),
+(4, 'Product M'),
+(5, 'Finance');

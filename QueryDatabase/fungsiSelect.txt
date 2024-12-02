@@ -1,0 +1,20 @@
+CREATE OR REPLACE FUNCTION st_select()
+RETURNS TABLE (
+    _id_karyawan VARCHAR,
+    _nama VARCHAR,
+    _id_dep INTEGER,
+    _nama_dep VARCHAR
+) AS $$
+BEGIN
+    RETURN QUERY 
+    SELECT 
+        k.id_karyawan::VARCHAR, 
+        k.nama, 
+        k.id_dep, 
+        d.nama_dep
+    FROM 
+        karyawan k
+    JOIN 
+        department d ON k.id_dep = d.id_dep;
+END;
+$$ LANGUAGE plpgsql;

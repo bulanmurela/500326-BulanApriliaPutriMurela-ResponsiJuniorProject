@@ -1,0 +1,14 @@
+CREATE OR REPLACE FUNCTION st_insert(
+    _nama VARCHAR,
+    _id_dep INTEGER
+)
+RETURNS INTEGER AS $$
+BEGIN
+    INSERT INTO karyawan (nama, id_dep) 
+    VALUES (_nama, _id_dep);
+    RETURN 1;
+EXCEPTION 
+    WHEN OTHERS THEN 
+        RETURN 0;
+END;
+$$ LANGUAGE plpgsql;

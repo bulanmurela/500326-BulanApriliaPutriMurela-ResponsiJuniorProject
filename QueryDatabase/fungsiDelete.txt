@@ -1,0 +1,13 @@
+CREATE OR REPLACE FUNCTION st_delete(
+    _id_karyawan VARCHAR
+)
+RETURNS INTEGER AS $$
+BEGIN
+    DELETE FROM karyawan 
+    WHERE id_karyawan = CAST(_id_karyawan AS INTEGER);
+    RETURN 1;
+EXCEPTION 
+    WHEN OTHERS THEN 
+        RETURN 0;
+END;
+$$ LANGUAGE plpgsql;
